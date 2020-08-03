@@ -1,0 +1,11 @@
+baseURL = "localhost"
+languageCode = "de_DE"
+DefaultContentLanguage = "de"
+
+
+enableEmoji = "true"
+enableGitInfo = "true"
+enableRobotsTXT = "true"
+
+disableKinds = ["taxonomy", "taxonomyTerm", "category", "RSS"]
+title = "Hugo starter-kit"

@@ -1,0 +1,43 @@
+{
+  "name": "hugo-starter-kit",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "",
+  "main": "",
+  "repository": "https://github.com/wearecandyblue/hugo-starter-kit.git",
+  "author": "Lukas Becker <lukas@candyblue.agency>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "server": "hugo server --port=8080 --disableFastRender"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.8.7",
+    "autoprefixer": "^9.8.5",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "core-js": "^3.6.4",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "laravel-mix": "^5.0.4",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^3.1.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
