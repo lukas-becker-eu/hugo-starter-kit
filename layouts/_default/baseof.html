@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.Language.Lang }}" class="no-js">
+
+  {{ block "head" . }}
+
+    {{ $css := resources.Get "css/app.css" }}
+    {{- if (eq (getenv "HUGO_ENV") "production") -}}
+      {{ $css := $css | minify | fingerprint "md5" }}
+    {{- end -}}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+    <script>(function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js')})()</script>
+
+  {{ end }}
+
+  <body>
+    {{- with $.Site.Params.gtmId -}}
+      {{- if (eq (getenv "HUGO_ENV") "production")  -}}
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id={{ . }}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+      {{- end -}}
+    {{- end -}}
+
+
+      {{- partial "header.html" . -}}
+
+      {{- block "main" . -}}{{- end -}}
+
+
+      {{- partial "footer.html" . -}}
+
+
+    {{ $manifest := resources.Get "js/manifest.js" }}
+    {{- if (eq (getenv "HUGO_ENV") "production") -}}
+      {{ $manifest := $manifest | minify | fingerprint "md5" }}
+    {{- end -}}
+    <script src="{{ $manifest.Permalink }}"{{- if (eq (getenv "HUGO_ENV") "production") -}} integrity="{{ $manifest.Data.Integrity }}"{{- end -}}></script>
+
+    {{ $app := resources.Get "js/app.js" }}
+    {{- if (eq (getenv "HUGO_ENV") "production") -}}
+      {{ $app := $app | minify | fingerprint "md5" }}
+    {{- end -}}
+    <script src="{{ $app.Permalink }}"{{- if (eq (getenv "HUGO_ENV") "production") -}} integrity="{{ $app.Data.Integrity }}"{{- end -}}></script>
+
+
+  </body>
+</html>

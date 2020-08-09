@@ -1,3 +1,6 @@
 [build]
   useResourceCacheWhen = "fallback"
   writeStats = true
+
+[params]
+  gtmId = "123"
